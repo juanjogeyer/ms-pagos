@@ -3,12 +3,12 @@ version: '3.8'
 services:
   
   # Microservicio de Catálogo
-  ms-catalogo:
+  ms-pago:
     build:
       context: ..
     container_name: ms-pago
     ports:
-      - "5003:5000"  # El contenedor expone el puerto 5001
+      - "5003:5003"  # El contenedor expone el puerto 5001
     networks:
       - ecommerce-network
 
