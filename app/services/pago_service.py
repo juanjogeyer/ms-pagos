@@ -1,12 +1,9 @@
-from app.model import Pago
+from app.models import Pago
 from app.repository import PagoRepository
 
 repository = PagoRepository()
 
 class PagoService:
-
-    def all(self) -> list[Pago]:
-        return repository.all()
 
     def add(self, pago: Pago) -> Pago:
         return repository.add(pago)
