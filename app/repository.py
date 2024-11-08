@@ -1,11 +1,7 @@
-from typing import List
 from app import db
-from app.model import Pago
+from app.models.pago import Pago
 
 class PagoRepository:
-
-    def all(self) -> List[Pago]:
-        return db.session.query(Pago).all()
 
     def add(self, pago: Pago) -> Pago:
         db.session.add(pago)
