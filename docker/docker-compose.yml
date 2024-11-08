@@ -1,17 +1,19 @@
-version: '3.8'
-
 services:
   
   # Microservicio de Catálogo
-  ms-pago:
-    build:
-      context: ..
-    container_name: ms-pago
+  ms-pagos:
+    image: mspagos:v1.0
+    container_name: ms-pagos
+    depends_on:
+      - ecommerce_app
     ports:
-      - "5003:5003"  # El contenedor expone el puerto 5001
+      - 5003:5000
     networks:
-      - ecommerce-network
+      - ecommerce_network
+    environment:
+      - FLASK_CONTEXT=${FLASK_CONTEXT}
+      - DEV_DB_URI=${DEV_DB_URI}
 
 networks:
-  ecommerce-network:
+  ecommerce_network:
     external: true
