@@ -1,6 +1,6 @@
 import unittest, os
 from app import create_app, db
-from app.model import Pago
+from app.models import Pago
 class PagoTestCase(unittest.TestCase):
     
     def setUp(self):
@@ -23,13 +23,13 @@ class PagoTestCase(unittest.TestCase):
     def test_pago(self):
         pago = self.__get_pago()
 
-        self.assertEqual(pago.producto_id, self.IDPRODUCTO_PRUEBA)
+        self.assertEqual(pago.producto, self.IDPRODUCTO_PRUEBA)
         self.assertEqual(pago.precio, self.PRECIO_PRUEBA)
         self.assertEqual(pago.medio_pago, self.MEDIO_PAGO_PRUEBA)
 
     def __get_pago(self):
         pago = Pago()
-        pago.producto_id = self.IDPRODUCTO_PRUEBA
+        pago.producto = self.IDPRODUCTO_PRUEBA
         pago.precio = self.PRECIO_PRUEBA
         pago.medio_pago = self.MEDIO_PAGO_PRUEBA
 
